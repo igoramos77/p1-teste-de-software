@@ -2,6 +2,7 @@ package p1;
 
 import org.junit.jupiter.api.Test;
 
+import static org.easymock.EasyMock.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LegalPersonTest {
@@ -28,5 +29,24 @@ class LegalPersonTest {
                 "Brown & Amaral Tecnologia e Treinamento", phone);
 
         assertFalse(legalPerson.handleCnpjIsValid());
+    }
+
+    @Test
+    void handleCnpjInValidMook() {
+        LegalPerson legalPerson = createMock(LegalPerson.class);
+
+        expect(legalPerson.handleCnpjIsValid()).andReturn(false);
+        replay(legalPerson);
+
+        assertFalse(legalPerson.handleCnpjIsValid());
+    }
+
+    @Test
+    void handleGetAddessMook() {
+        Address address = createMock(Address.class);
+        expect(address.getCity()).andReturn("Vassouras");
+        replay(address);
+
+        assertEquals("Vassouras", address.getCity());
     }
 }
