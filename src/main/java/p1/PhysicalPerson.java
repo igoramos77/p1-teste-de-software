@@ -10,14 +10,13 @@ public class PhysicalPerson extends Client {
     private Date birthdayDate;
     private Address address;
 
-    public PhysicalPerson(String email, String password, String avatar_url, Address address, String firstName, String lastName, String cpf, String gender, Date birthdayDate, Address address1) {
+    public PhysicalPerson(String email, String password, String avatar_url, Address address, String firstName, String lastName, String cpf, String gender, Date birthdayDate) {
         super(email, password, avatar_url, address);
         this.firstName = firstName;
         this.lastName = lastName;
         this.cpf = cpf;
         this.gender = gender;
         this.birthdayDate = birthdayDate;
-        this.address = address1;
     }
 
     public String getFirstName() {
@@ -58,16 +57,6 @@ public class PhysicalPerson extends Client {
 
     public void setBirthdayDate(Date birthdayDate) {
         this.birthdayDate = birthdayDate;
-    }
-
-    @Override
-    public Address getAddress() {
-        return address;
-    }
-
-    @Override
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
 
